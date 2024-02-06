@@ -43,29 +43,29 @@ Network Configuration and Check:
 
 ip a to check IP addresses.
 
-ping -c 4 google.com to test internet connectivity.
+```ping -c 4 google.com to test internet connectivity.```
 
  
 
 System Update:
 
-sudo apt-get update && sudo apt-get upgrade -y
+```sudo apt-get update && sudo apt-get upgrade -y```
 
 Disable UFW Firewall (optional):
 
-sudo ufw disable
+```sudo ufw disable```
 
 Ansible Setup on MainServer:
 
-Install Ansible:
+```Install Ansible:```
 
-sudo apt-get install ansible -y
+```sudo apt-get install ansible -y```
 
 Setup SSH Keys:
 
-ssh-keygen
+```ssh-keygen```
 
-ssh-copy-id user@vm_ip_address for each VM.
+```ssh-copy-id user@vm_ip_address for each VM.```
 
 Configure Ansible Inventory:
 
@@ -75,11 +75,11 @@ Docker Setup on VMs:
 
 Install Docker:
 
-sudo apt-get install docker.io -y
+```sudo apt-get install docker.io -y```
 
 Run Hello-World Container (to test Docker):
 
-sudo docker run hello-world
+```sudo docker run hello-world```
 
 Nagios Setup on MainServer:
 
@@ -91,7 +91,7 @@ Configure Nagios for VM Monitoring:
 
 Edit Nagios configuration files to add host entries for each VM.
 
-On the mainserver:
+On the main server:
 
 Ansible Playbooks Setup and Execution
 
@@ -101,7 +101,7 @@ Purpose: To update all packages on web servers to the latest version.
 
 Content:
 
-- name: Update all packages to the latest version on webservers
+```- name: Update all packages to the latest version on webservers
 
   hosts: webserver01, webserver02, webserver03
 
@@ -125,9 +125,8 @@ Content:
 
       ansible.builtin.apt:
 
-        upgrade: dist
-
- 
+        upgrade: dist 
+```
 
  
 
@@ -140,7 +139,7 @@ Deploy Nginx using Docker Playbook (deploy_nginx.yml)
 Purpose: To deploy the Nginx web server in Docker containers on VMs.
 
 Content:
-
+```
 - name: Deploy Nginx web server using Docker
 
   hosts: webserver01, webserver02, webserver03
@@ -176,7 +175,7 @@ Content:
         ports:
 
           - "80:80"
-
+```
  
 
  
